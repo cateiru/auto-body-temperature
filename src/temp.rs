@@ -57,9 +57,10 @@ impl Temp {
   /// Vec<f32> : a list of temp values.
   pub fn create_multiple(&self, size: usize) -> Vec<f32> {
     let mut temps: Vec<f32> = Vec::with_capacity(size);
+    let mut rng = thread_rng();
 
     for _ in 0..size {
-      temps.push(self.create());
+      temps.push(box_muller(&mut rng, self.average, self.sigma));
     }
 
     temps

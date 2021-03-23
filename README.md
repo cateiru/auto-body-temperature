@@ -24,7 +24,7 @@ auto_temp = { git = "https://github.com/yuto51942/auto-body-temperature", branch
 use auto_temp::Temp;
 
 fn main() -> Result<(), Box<dyn std::error:Error>> {
-  let t = Temp::new(36.0, 37.0, 35.0);
+  let t = Temp::new(Some(36.0), None);
 
   // if one generate.
   let temp = t.create();
