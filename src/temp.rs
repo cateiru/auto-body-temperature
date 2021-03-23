@@ -3,8 +3,7 @@ use std::f32::consts::PI;
 
 pub struct Temp {
   average: f32,
-  max_temp: f32,
-  min_temp: f32,
+  sigma: f32,
 }
 
 impl Temp {
@@ -20,27 +19,21 @@ impl Temp {
   ///
   /// Self: this instance.
   ///
-  pub fn new(average: Option<f32>, max: Option<f32>, min: Option<f32>) -> Self {
+  pub fn new(average: Option<f32>, sigma: Option<f32>) -> Option<Self> {
     let average = match average {
       Some(t) => t,
       None => 36.0,
     };
 
-    let max_temp = match max {
+    let sigma = match sigma {
       Some(t) => t,
-      None => 42.0,
+      None => 1.0,
     };
 
-    let min_temp = match min {
-      Some(t) => t,
-      None => 35.0,
-    };
-
-    Self {
+    Some(Self {
       average: average,
-      max_temp: max_temp,
-      min_temp: min_temp,
-    }
+      sigma: sigma,
+    })
   }
 
   /// Create temp value.
@@ -50,7 +43,7 @@ impl Temp {
   /// f32: Randomly created with a normal distribution.
   pub fn create(&self) -> f32 {
     let mut rng = thread_rng();
-    box_muller(&mut rng, self.average, self.max_temp - self.min_temp)
+    box_muller(&mut rng, self.average, self.sigma)
   }
 
   /// Create multiple temp value.

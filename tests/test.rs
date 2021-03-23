@@ -1,10 +1,10 @@
 use auto_temp::Temp;
 
 #[test]
-fn create() {
-  let temp = Temp::new(None, Some(36.7), Some(35.0));
+fn multiple_create() {
+  let temp = Temp::new(None, None).unwrap();
 
-  let now_temp = temp.create();
+  let now_temp = temp.create_multiple(100);
 
-  assert!(36.7 >= now_temp && 35.0 <= now_temp, "Oops!");
+  assert_eq!(now_temp.len(), 100, "Oops! now_temp: {}", now_temp.len());
 }

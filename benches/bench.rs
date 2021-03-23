@@ -6,7 +6,7 @@ fn criterion_benchmark(c: &mut Criterion) {
 }
 
 fn bench() {
-  let temp = Temp::new(None, Some(36.7), Some(35.0));
+  let temp = Temp::new(None, None).unwrap();
 
   let now_temp = temp.create();
 }

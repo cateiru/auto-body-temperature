@@ -8,7 +8,7 @@ Rust製の"**超**"高速体温生成。
 cargo bench
 
 Gnuplot not found, using plotters backend
-auto temp               time:   [30.240 ns 30.355 ns 30.472 ns]
+auto temp               time:   [29.282 ns 29.404 ns 29.531 ns]
 ```
 
 ## Usage
@@ -49,8 +49,7 @@ Tempインスタンスを作成します。
 ##### Args
 
 - average (Option<f32>): 平均値。Noneの場合は36.0になります。
-- max (Option<f32>): 最大値。Noneの場合は42.0になります。
-- min (Option<f32>): 最小値。Noneの場合は35.0になります。
+- sigma (Option<f32>): 正規分布の分散。Noneの場合は1.0になります。
 
 ###### Returns
 
