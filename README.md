@@ -13,6 +13,27 @@ auto temp               time:   [29.282 ns 29.404 ns 29.531 ns]
 
 ## Usage
 
+### 時間がない！いますぐ使いたい！
+
+```bash
+# install rustup, cargo, rustc...
+curl https://sh.rustup.rs -sSf | sh
+```
+
+```bash
+git clone https://github.com/yuto51942/auto-body-temperature.git
+cd auto-body-temperature
+cargo run
+
+# benchmark
+cargo bench
+
+# test
+cargo test
+```
+
+### クレートとして使う
+
 - `cargo.toml`に以下を追加してください。
 
 ```toml
