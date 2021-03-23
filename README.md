@@ -1,6 +1,6 @@
 # Auto Body Temperature
 
-Rust製の"超"高速体温生成。
+Rust製の"**超**"高速体温生成。
 
 ## Benchmark
 
@@ -20,7 +20,7 @@ auto temp               time:   [30.240 ns 30.355 ns 30.472 ns]
 auto_temp = { git = "https://github.com/yuto51942/auto-body-temperature", branch="main" }
 ```
 
-```rs
+```rust
 use auto_temp::Temp;
 
 fn main() -> Result<(), Box<dyn std::error:Error>> {
@@ -76,6 +76,6 @@ Tempインスタンスを作成します。
 
 Vec[u32]: 体温のリスト。
 
-## LICENCE
+## LICENSE
 
 [MIT](./LICENSE)
